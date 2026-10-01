@@ -7,28 +7,28 @@ BLUE = "#1f77b4"
 ORANGE = "#ff7f0e"
 
 cases = [
-    # name, input, wrap, expected (midpoints, left_edges, right_edges)
-    ("single peak", [0, 1, 0], False, ([1], [1], [1])),
-    ("single plateau", [0, 1, 1, 1, 0], False, ([2], [1], [3])),
-    ("cos wrap", np.cos(np.linspace(0, 3 * np.pi, 50)),
+    # description, input, wrap, expected (midpoints, left_edges, right_edges)
+    ("single_peak_no_wrap", [0, 1, 0], False, ([1], [1], [1])),
+    ("single_plateau_no_wrap", [0, 1, 1, 1, 0], False, ([2], [1], [3])),
+    ("cos_wrap", np.cos(np.linspace(0, 3 * np.pi, 50)),
      True, ([0, 33], [0, 33], [0, 33])),
-    ("cos no wrap", np.cos(np.linspace(0, 3 * np.pi, 50)),
+    ("cos_no_wrap", np.cos(np.linspace(0, 3 * np.pi, 50)),
      False, ([33], [33], [33])),
-    ("flat line", [0, 1, 1, 0], True, ([1], [1], [2])),
-    ("right peak wrap", [1, 0, 1, 2], True, ([3], [3], [3])),
-    ("right peak no wrap", [1, 0, 1, 2], False, ([], [], [])),
-    ("right and left equal wrap", [1, 0, 1], True, ([2], [2], [0])),
-    ("right and left equal no wrap", [1, 0, 1], False, ([], [], [])),
-    ("w-wrap", [1, 1, 0, 0, 1, 1], True, ([5], [4], [1])),
-    ("last sample peak", [0, 0, 1], True, ([2], [2], [2])),
-    ("no_wrap_plateu", [0, 1, 1], False, ([], [], [])),
-    ("wrap_plateu", [0, 1, 1], True, ([1], [1], [2])),
-    ("two samples wrap", [0, 1], True, ([1], [1], [1])),
-    ("plateau at end", [0, 0, 1, 1], True, ([2], [2], [3])),
-    ("alternating peaks", [0, 1, 0, 1], True, ([1, 3], [1, 3], [1, 3])),
-    ("peak then end plateau", [0, 1, 0, 0, 2, 2],
+    ("flat_line_wrap", [0, 1, 1, 0], True, ([1], [1], [2])),
+    ("right_peak_wrap", [1, 0, 1, 2], True, ([3], [3], [3])),
+    ("right_peak_no_wrap", [1, 0, 1, 2], False, ([], [], [])),
+    ("right_and_left_equal_wrap", [1, 0, 1], True, ([2], [2], [0])),
+    ("right_and_left_equal_no_wrap", [1, 0, 1], False, ([], [], [])),
+    ("w_wrap", [1, 1, 0, 0, 1, 1], True, ([5], [4], [1])),
+    ("last_sample_peak_wrap", [0, 0, 1], True, ([2], [2], [2])),
+    ("plateau_at_start_no_wrap", [0, 1, 1], False, ([], [], [])),
+    ("plateau_at_start_wrap", [0, 1, 1], True, ([1], [1], [2])),
+    ("two_samples_wrap", [0, 1], True, ([1], [1], [1])),
+    ("plateau_at_end_wrap", [0, 0, 1, 1], True, ([2], [2], [3])),
+    ("alternating_peaks_wrap", [0, 1, 0, 1], True, ([1, 3], [1, 3], [1, 3])),
+    ("peak_then_end_plateau_wrap", [0, 1, 0, 0, 2, 2],
      True, ([1, 4], [1, 4], [1, 5])),
-    ("interior and boundary peaks", [1, 0, 2, 0, 1],
+    ("interior_and_boundary_peaks_wrap", [1, 0, 2, 0, 1],
      True, ([2, 4], [2, 4], [2, 0])),
 ]
 
@@ -169,4 +169,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
